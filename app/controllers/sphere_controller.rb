@@ -1,6 +1,9 @@
 class SphereController < ApplicationController
+  
+  def home    
+  end
 
-  def home
-    
+  def experiment
+  	render layout: 'experiment'
   end
 end

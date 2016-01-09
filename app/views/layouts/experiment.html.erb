@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Sphere</title>
+	<%= stylesheet_link_tag 'experiment', media: 'all' %>
+	<%= csrf_meta_tags %>
+</head>
+<body>
+	<%= yield %>
+	<div id="menu">
+		<button id="table">TABLE</button>
+		<button id="sphere">SPHERE</button>
+		<button id="helix">HELIX</button>
+		<button id="grid">GRID</button>
+	</div>
+	<%= javascript_include_tag 'experiment' %>
+</body>
+</html>

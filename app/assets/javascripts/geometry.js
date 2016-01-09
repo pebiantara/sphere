@@ -79,39 +79,3 @@
 
  }
 
- function updateGroupGeometry( mesh, geometry ) {
-
- 	mesh.children[0].geometry.dispose();
- 	mesh.children[1].geometry.dispose();
-
- 	mesh.children[0].geometry = new THREE.WireframeGeometry( geometry );
- 	mesh.children[1].geometry = geometry;
-
-	//these do not update nicely together if shared
-}
-
-var guis = {
-
-	SphereGeometry : function( mesh, data ) {
-
-		function generateGeometry() {
-
-			updateGroupGeometry( mesh,
-				new THREE.SphereGeometry(
-					data.radius, data.widthSegments, data.heightSegments, data.phiStart, data.phiLength, data.thetaStart, data.thetaLength
-					)
-				);
-
-		}
-		generateGeometry();
-	}
-
-}
-
-function chooseFromHash ( mesh, data ) {
-	var selectedGeometry = 'SphereGeometry';
-	if ( guis[ selectedGeometry ] !== undefined ) {
-		guis[ selectedGeometry ]( mesh, data );
-	}
-	return {};
-}
